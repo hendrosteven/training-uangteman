@@ -8,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.uangteman.dto.Messages;
 import com.uangteman.entity.Users;
 import com.uangteman.repo.UsersRepo;
 
@@ -34,7 +35,11 @@ public class SigninController {
 			//session update
 			session.setAttribute("user", loginUser);
 			return "redirect:/";
-		}else{			
+		}else{
+			Messages msg = new Messages();
+			msg.setType(Messages.NotifType.ERROR);
+			msg.setMessage("Invalid username or password");
+			session.setAttribute("msg", msg);
 			return "redirect:/signin";
 		}
 	}
