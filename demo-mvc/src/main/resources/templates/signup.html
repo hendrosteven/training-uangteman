@@ -12,7 +12,7 @@
 			<div class="container">
 				<div class="container-fluid">
 					<div class="navbar-header">
-						<a class="navbar-brand" href="#">Spring Blogs</a>
+						<a class="navbar-brand" href="/">Spring Blogs</a>
 					</div>
 					<form class="navbar-form navbar-left">
 						<div class="form-group">
@@ -35,27 +35,29 @@
 	</header>
 
 	<div class="container">
-		<div class="col-lg-12">
-			<h3>Sign Up</h3>
-			<form>
+		<div class="col-lg-3"></div>
+		<div class="col-lg-6">
+			<h3 class="text-center">Sign Up</h3>
+			<form th:action="@{/signup}" th:object="${user}" method="post">
 				<div class="form-group">
 					<label for="name">Full Name</label>
 					<input type="text" class="form-control" 
-						placeholder="Enter full name"/>
+						placeholder="Enter full name" th:field="*{fullName}"/>
 				</div>
 				<div class="form-group">
 					<label for="email">Email</label>
 					<input type="text" class="form-control" 
-						placeholder="Enter email"/>
+						placeholder="Enter email" th:field="*{userName}"/>
 				</div>
 				<div class="form-group">
 					<label for="password">Password</label>
 					<input type="password" class="form-control" 
-						placeholder="Enter password"/>
+						placeholder="Enter password" th:field="*{password}"/>
 				</div>
-				<p><input type="submit" value="Signup Now"/></p>
+				<p><input type="submit" class="btn btn-info" value="Signup Now"/></p>
 			</form>
 		</div>
+		<div class="col-lg-3"></div>
 	</div>
 </body>
 <script src="webjars/jquery/3.2.1/jquery.min.js"></script>
