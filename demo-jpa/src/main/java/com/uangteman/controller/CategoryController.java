@@ -1,5 +1,7 @@
 package com.uangteman.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -25,5 +27,10 @@ public class CategoryController {
 	@RequestMapping(method=RequestMethod.GET, value="/{id}")
 	public Category findById(@PathVariable("id") Long id){
 		return repo.findOne(id);
+	}
+	
+	@RequestMapping(method=RequestMethod.GET)
+	public List<Category> findAll(){
+		return repo.findAllCategory();
 	}
 }

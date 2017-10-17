@@ -13,4 +13,7 @@ public interface CategoryRepo extends CrudRepository<Category, Long>{
 	
 	@Query("select cat from Category cat where cat.name like :paramName")
 	public List<Category> findByName(@Param("paramName") String paramName);
+	
+	@Query("select cat from Category cat")
+	public List<Category> findAllCategory();
 }
