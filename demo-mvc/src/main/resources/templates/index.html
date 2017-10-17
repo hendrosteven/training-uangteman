@@ -21,13 +21,23 @@
 						<button type="submit" class="btn btn-default">Search</button>
 					</form>
 					<ul class="nav navbar-nav navbar-right">
-						<li class="dropdown"><a href="#" data-toggle="dropdown"
-							role="button" class="dropdown-toggle">Account <span
-								class="caret"></span></a>
+						<li th:if="${session.user==null}" class="dropdown"><a href="#" 
+								data-toggle="dropdown" role="button" class="dropdown-toggle">
+								Account <span class="caret"></span></a>
 							<ul class="dropdown-menu">
 								<li><a href="/signin">Sign in</a></li>
 								<li><a href="/signup">Sign up</a></li>
-							</ul></li>
+							</ul>
+						</li>
+						<li th:if="${session.user!=null}" class="dropdown"><a href="#" 
+								data-toggle="dropdown" role="button" class="dropdown-toggle">
+								<span th:text="'Welcome '+ ${session.user.fullName}"></span>
+								<span class="caret"></span></a>
+							<ul class="dropdown-menu">
+								<li><a href="">Create Article</a></li>
+								<li><a href="">Sign out</a></li>
+							</ul>
+						</li>
 					</ul>
 				</div>
 			</div>
