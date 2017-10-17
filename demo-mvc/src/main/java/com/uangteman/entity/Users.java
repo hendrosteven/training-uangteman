@@ -8,6 +8,10 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+
+import org.hibernate.validator.constraints.Email;
 
 @Entity
 @Table(name="tusers")
@@ -16,10 +20,16 @@ public class Users implements Serializable{
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long id;
+	
+	
 	@Column(length=150, nullable=false)
 	private String fullName;
+	
+	
 	@Column(length=100, nullable=false, unique=true)
 	private String userName;
+	
+	
 	@Column(length=150, nullable=false)
 	private String password;
 	
