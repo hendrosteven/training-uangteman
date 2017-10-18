@@ -7,6 +7,13 @@ import { HttpModule } from '@angular/http';
 import { FormsModule } from '@angular/forms';
 import { ProductComponent } from './product/product.component';
 import { ProductService } from './services/product.service';
+import { RouterModule } from '@angular/router';
+
+export const AppRoutes : any = [
+  {path: "", component: AppComponent},
+  {path: "category", component: CategoryComponent},
+  {path: "product", component: ProductComponent}
+];
 
 @NgModule({
   declarations: [
@@ -17,7 +24,8 @@ import { ProductService } from './services/product.service';
   imports: [
     HttpModule,
     FormsModule,
-    BrowserModule
+    BrowserModule,
+    RouterModule.forRoot(AppRoutes,{useHash: true})
   ],
   providers: [CategoryService,ProductService],
   bootstrap: [AppComponent]

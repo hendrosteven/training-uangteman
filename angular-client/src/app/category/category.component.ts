@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CategoryService } from '../services/category.service';
 import { Category } from '../classes/category.class';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-category',
@@ -12,20 +13,20 @@ export class CategoryComponent implements OnInit {
   categories: Category[] = [];
   category: Category = new Category();
 
-  constructor(private categoryService: CategoryService) { }
+  constructor(private categoryService: CategoryService, private router: Router) { }
 
-  ngOnInit() {    
+  ngOnInit() {       
     this.loadCategory();
   }
 
-  loadCategory(){
-    this.categoryService.getAllCategory().subscribe(output=>{
+  loadCategory(){      
+    this.categoryService.getAllCategory().subscribe(output=>{       
         this.categories = output;
-    },error=>{
+    },error=>{      
       console.log(error);
     },()=>{
       console.log("finish load category");
-    });
+    });    
   }  
 
   onCategorySave(){

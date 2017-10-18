@@ -1,61 +1,36 @@
-<!DOCTYPE html>
-<html>
-
-<body>
-
-  <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
-    <a class="navbar-brand" href="#">Title</a>
-    <ul class="nav navbar-nav">
-      <li class="active">
-        <a href="#">Home</a>
-      </li>
-      <li>
-        <a href="#">Link</a>
-      </li>
-    </ul>
-  </nav>
-
-  <div class="container">
-    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-      <div class="row">
-        <h3>List Category</h3>
-        <table class="table table-hover">
-          <thead>
-            <tr>
-              <th>Id</th>
-              <th>Name</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr *ngFor="let category of categories">
-              <td>{{ category.id }}</td>
-              <td>{{ category.name }}</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
+<div class="container">
+  <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+    <div class="row">
+      <h3>List Category</h3>
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th>Id</th>
+            <th>Name</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let category of categories">
+            <td>{{ category.id }}</td>
+            <td>{{ category.name }}</td>
+          </tr>
+        </tbody>
+      </table>
     </div>
-
-    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-      <div class="row">
-        <div class="col-lg-12">
-          <br/><br/>
-          <h3>Input Category</h3>
-          <div class="form-group">           
-            <label for="">Name</label>
-            <input type="text" class="form-control" [(ngModel)]="category.name" 
-                  placeholder="Enter category name">
-          </div>
-          <button (click)="onCategorySave()" type="button"
-                 class="btn btn-primary">Save</button>
-        </div>
-      </div>
-    </div>
-
-
-
   </div>
 
-</body>
-
-</html>
+  <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+    <div class="row">
+      <div class="col-lg-12">
+        <br/>
+        <br/>
+        <h3>Input Category</h3>
+        <div class="form-group">
+          <label for="">Name</label>
+          <input type="text" class="form-control" [(ngModel)]="category.name" placeholder="Enter category name">
+        </div>
+        <button (click)="onCategorySave()" type="button" class="btn btn-primary">Save</button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -18,7 +18,7 @@ export class CategoryService{
         this.options = new RequestOptions({headers: this.headers});
     }
 
-    getAllCategory() {       
+    getAllCategory() {     
         return this
             .http
             .get(this.url, this.options)
