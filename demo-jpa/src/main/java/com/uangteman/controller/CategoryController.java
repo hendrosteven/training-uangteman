@@ -29,6 +29,11 @@ public class CategoryController {
 		return repo.findOne(id);
 	}
 	
+	@RequestMapping(method=RequestMethod.DELETE, value="/{id}")
+	public void removeByid(@PathVariable("id") Long id){
+		repo.delete(id);
+	}
+	
 	@RequestMapping(method=RequestMethod.GET)
 	public List<Category> findAll(){
 		return repo.findAllCategory();

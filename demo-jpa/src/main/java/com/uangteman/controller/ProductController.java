@@ -23,11 +23,17 @@ public class ProductController {
 	@RequestMapping(method=RequestMethod.POST)
 	public Product saveOrUpdate(@RequestBody Product product){
 		return repo.save(product);		
-	}
+	} 
 	
 	@RequestMapping(method=RequestMethod.GET)
 	public List<Product> findAllProduct(){			
 		return repo.findAllProduct();
+	}
+	
+	@RequestMapping(method=RequestMethod.DELETE, value="/{id}")
+	public boolean removeByid(@PathVariable("id") Long id){
+		repo.delete(id);
+		return true;
 	}
 	
 	@RequestMapping(method=RequestMethod.GET, value="/category/{categoryId}")

@@ -10,10 +10,11 @@ import { Category } from '../classes/category.class';
 export class CategoryComponent implements OnInit {
 
   categories: Category[] = [];
+  category: Category = new Category();
 
   constructor(private categoryService: CategoryService) { }
 
-  ngOnInit() {
+  ngOnInit() {    
     this.loadCategory();
   }
 
@@ -26,4 +27,10 @@ export class CategoryComponent implements OnInit {
       console.log("finish load category");
     });
   }  
+
+  onCategorySave(){
+    this.categoryService.saveCategory(this.category).subscribe(output=>{
+      this.categories.push(output);  
+    });
+  }
 }

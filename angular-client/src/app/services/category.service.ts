@@ -2,6 +2,7 @@ import {Injectable} from '@angular/core';
 import {Http, RequestOptions, Headers} from '@angular/http';
 import {Observable} from 'rxjs/Observable';
 import 'rxjs/Rx'
+import { Category } from '../classes/category.class';
 
 
 @Injectable()
@@ -23,6 +24,14 @@ export class CategoryService{
             .get(this.url, this.options)
             .map(res => res.json())
             .catch(this.handleError)
+    }
+
+    saveCategory(category: Category){
+        return this
+        .http
+        .post(this.url,category,this.options)
+        .map(res => res.json())
+        .catch(this.handleError)
     }
 
     handleError(error) {
