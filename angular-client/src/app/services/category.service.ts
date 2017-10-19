@@ -12,10 +12,14 @@ export class CategoryService{
     headers: any;
     options: any;
 
-    constructor(private http : Http) {
-        this.headers = new Headers({'Content-Type': 'application/json', 
-                'Cache-Control': 'no-cache'});
-        this.options = new RequestOptions({headers: this.headers});
+    constructor(private http : Http) {        
+        console.log(localStorage.getItem('token'));
+        this.headers = new Headers({
+                    'Content-Type': 'application/json', 
+                    'Cache-Control': 'no-cache',
+                    'Authorization': 'Basic '+ localStorage.getItem('token')
+                });
+        this.options = new RequestOptions({headers: this.headers});        
     }
 
     getAllCategory() {     

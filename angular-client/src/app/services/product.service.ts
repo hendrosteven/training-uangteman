@@ -13,7 +13,11 @@ export class ProductService {
     options : any;
 
     constructor(private http : Http) {
-        this.headers = new Headers({'Content-Type': 'application/json', 'Cache-Control': 'no-cache'});
+        this.headers = new Headers({
+            'Content-Type': 'application/json', 
+            'Cache-Control': 'no-cache',
+            'Authorization': 'Basic '+ localStorage.getItem('token')
+        });
         this.options = new RequestOptions({headers: this.headers});
     }
 

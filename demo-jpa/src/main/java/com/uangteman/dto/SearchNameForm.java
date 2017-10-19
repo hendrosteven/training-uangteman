@@ -1,6 +1,9 @@
 package com.uangteman.dto;
 
+import org.hibernate.validator.constraints.NotBlank;
+
 public class SearchNameForm {
+	
 	String name;
 
 	public String getName() {
