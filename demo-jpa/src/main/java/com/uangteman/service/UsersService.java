@@ -44,7 +44,7 @@ public class UsersService implements UserDetailsService {
 			throw new UsernameNotFoundException("No user present with this email: "+email);
 		}else{
 			List<String> userRoles = new ArrayList<String>();
-			userRoles.add("USER");
+			userRoles.add("ACTUATOR");
 			return new Users(users, userRoles);
 		}		
 	}
